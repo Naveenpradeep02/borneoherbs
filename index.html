@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>borneo herbs</title>
     <link rel="shortcut icon" href="./img/logof.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       * {
         margin: 0;
@@ -146,7 +153,57 @@
       .btn-buy:hover {
         background: linear-gradient(to right, #0072ff, #00c6ff);
       }
+      .float-container {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none; /* Hidden by default */
+        justify-content: space-between;
+        padding: 10px 20px;
+        z-index: 9999;
+        display: flex; /* Use flexbox for layout */
+      }
 
+      .left a,
+      .right a {
+        text-decoration: none;
+        margin-right: 15px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .left a:last-child {
+        margin-right: 0;
+      }
+      .float-container a {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      .float-container a.buy {
+        width: fit-content;
+        background-color: green;
+        border-radius: 12px;
+        font-size: 14px;
+        padding: 5px 10px;
+      }
+      .whats {
+        background-color: rgb(67, 252, 67);
+      }
+      .float-container a i {
+        color: #fff;
+      }
+      .up {
+        background-color: #333;
+      }
+      .phone {
+        background-color: #25669c;
+      }
       /* Responsive Styles */
       @media (max-width: 768px) {
         header {
@@ -232,11 +289,37 @@
         <a href="https://borneoherbs.in/hindi/" class="l-btn">Learn More</a>
       </p>
     </section>
+    <!-- Float btn  -->
+    <div class="float-container" id="floatHeader">
+      <div class="left">
+        <a href="tel:+917358471698" class="phone"
+          ><i class="fa-solid fa-phone"></i
+        ></a>
+        <a href="https://wa.me/917358471698" class="whats"
+          ><i class="fa-brands fa-whatsapp"></i
+        ></a>
+      </div>
+      <div class="right">
+        <!-- <a href="https://borneoherbs.in/shop/" class="buy">buy Now</a> -->
+        <a href="#" class="up"><i class="fa-solid fa-angle-up"></i></a>
+      </div>
+    </div>
+    <!-- Float btn  -->
 
     <script>
       function buyNow() {
         window.location.href = "https://borneoherbs.in/shop/"; // replace with your actual buy link
       }
+
+      window.addEventListener("scroll", function () {
+        const floatHeader = document.getElementById("floatHeader");
+        if (window.scrollY > 200) {
+          // Show after scrolling 200px
+          floatHeader.style.display = "flex";
+        } else {
+          floatHeader.style.display = "none";
+        }
+      });
     </script>
   </body>
 </html>
